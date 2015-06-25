@@ -11,10 +11,25 @@ var sumOfThreeFives = function(upperBound) {
       finalSum = finalSum + i;
     }
   };
-  console.log(finalSum);
+  return finalSum
 }
-
-sumOfThreeFives(1000);
 
 
 // Better solution uses math!
+var target = 999
+var divisibleBy = function(num) {
+  p = target/num;
+  console.log(p);
+  console.log(num*(p*(p+1))/2)
+  return num*(p*(p+1))/2;
+};
+
+finalSolution = divisibleBy(3) + divisibleBy(5) - divisibleBy(15);
+
+console.log('Better solution')
+console.log(finalSolution);
+
+console.log('Initial solution')
+console.log(sumOfThreeFives(1000));
+
+console.log(finalSolution === sumOfThreeFives(1000));

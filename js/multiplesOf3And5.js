@@ -21,7 +21,7 @@ var divisibleBy = function(num) {
   p = target/num;
   console.log(p);
   console.log(num*(p*(p+1))/2)
-  return num*(p*(p+1))/2;
+  return (num*(p*(p+1))/2);
 };
 
 finalSolution = divisibleBy(3) + divisibleBy(5) - divisibleBy(15);

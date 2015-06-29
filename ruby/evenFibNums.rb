@@ -7,3 +7,34 @@
 
 load 'fibonacci_mod.rb'
 
+class Problem_solver
+  def initialize
+    # @fib_array = []
+    @top_fib = 0
+    @final_sum = 0
+    @top_place = 0
+  end
+
+  def calc_loop
+    until @top_fib >= 4_000_000
+      a, b = Fibonacci.fast_double_fib(@top_place)
+      if a % 2
+        puts 'found even'
+        p a
+        @final_sum += a
+        @top_fib = a
+        @top_place += 1
+      else
+        puts 'not found even'
+        p a
+        @top_fib = a
+        @top_place += 1
+      end
+    end
+    puts 'final sum:'
+    p @final_sum
+  end
+end
+
+problem_solver = Problem_solver.new
+problem_solver.calc_loop

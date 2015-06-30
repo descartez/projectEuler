@@ -72,6 +72,5 @@ end
 
 problem_solver = Problem_solver.new
 # puts Benchmark.measure { problem_solver.calc_loop }
-problem_solver.given_solution(4_000_000)
 # problem_solver.brute_force
 

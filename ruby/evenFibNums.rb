@@ -6,6 +6,7 @@
 #By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
 load 'fibonacci_mod.rb'
+require 'benchmark'
 
 class Problem_solver
   def initialize
@@ -15,32 +16,30 @@ class Problem_solver
     @top_place = 0
   end
 
-  # below solution does not work
-  def calc_loop
-    until @top_fib >= 4_000_000
-      a, b = Fibonacci.fast_double_fib(@top_place)
-      if a % 2 == 0
-        puts 'a found even'
-        p a
-        @final_sum += a
-        @top_fib = b
-        @top_place += 1
-      else
-        puts 'not found even'
-        p a
-        @top_fib = a
-        @top_place += 1
-      end
-    end
-    end_output
-  end
-
   def end_output
     p 'final sum of evens'
     p @final_sum
     p 'is correct?'
     p @final_sum == 4613732
   end
+
+  # below solution does not work
+  def calc_loop
+    until @top_fib >= 4_000_000
+      a, b = Fibonacci.fast_double_fib(@top_place)
+      if a % 2 == 0
+        @final_sum += a
+        @top_fib = b
+        @top_place += 1
+      else
+        @top_fib = a
+        @top_place += 1
+      end
+    end
+
+    end_output
+  end
+
 
 
   def brute_force
@@ -72,6 +71,7 @@ class Problem_solver
 end
 
 problem_solver = Problem_solver.new
-problem_solver.calc_loop
+# puts Benchmark.measure { problem_solver.calc_loop }
+problem_solver.given_solution(4_000_000)
 # problem_solver.brute_force
 

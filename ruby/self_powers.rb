@@ -20,9 +20,23 @@
       return sum
     end
   end
+
+# puts "TESTS"
+# puts "Works up to 10: #{powers_generator(0, 10, 0) == 10405071317}"
+# puts "Running to 1000"
+# p powers_generator(0, 1000, 0)
+
+# REFACTOR
+
+def powers_generator(endpt)
+  sum = 0
+  (endpt + 1).times do |powers|
+    sum += powers**powers
+  end
+  return sum
+end
+
 puts "TESTS"
-puts "Works up to 10: #{powers_generator(0, 10, 0) == 10405071317}"
-puts "Running to 1000"
-p powers_generator(0, 1000, 0)
-
-
+puts "Works up to 10: #{powers_generator(10) == 10405071317}"
+# puts "Running to 1000"
+# p powers_generator(1000)

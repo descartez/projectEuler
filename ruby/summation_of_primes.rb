@@ -4,17 +4,17 @@
 
 # Find the sum of all the primes below two million.
 
-def prime?(n)
-  return false if n < 2
-  (2..Math.sqrt(n)).none? {|num| length % num == 0}
-end
+require 'prime'
 
 def prime_summation(limit)
   sums = 0
   limit.times do |num|
-      # prime?(num + 1) ? sums += num : sums += 0
-      p prime(num)
+    if Prime.prime?(num)
+      p num
+      sums += num
+    end
   end
+  p sums
   return sums
 end
 
@@ -27,11 +27,13 @@ line(15)
 puts "TESTS"
 line(15)
 
-puts "Prime method works for nums < 3"
-puts "3 prime?: #{prime?(3) == true}"
-puts "2 prime?: #{prime?(2) == true}"
-puts "1 not prime?: #{prime?(1) == false}"
+# puts "Prime method works for nums < 3"
+# puts "3 prime?: #{prime?(3) == true}"
+# puts "2 prime?: #{prime?(2) == true}"
+# puts "1 not prime?: #{prime?(1) == false}"
 
-line(15)
 puts "prime_summation method works for:"
 puts "summation of 10 should == 17 : #{prime_summation(10) == 17}"
+
+puts "summation of 2 million?"
+prime_summation(2_000_000)

@@ -27,11 +27,6 @@ line(15)
 puts "TESTS"
 line(15)
 
-# puts "Prime method works for nums < 3"
-# puts "3 prime?: #{prime?(3) == true}"
-# puts "2 prime?: #{prime?(2) == true}"
-# puts "1 not prime?: #{prime?(1) == false}"
-
 puts "prime_summation method works for:"
 puts "summation of 10 should == 17 : #{prime_summation(10) == 17}"
 
